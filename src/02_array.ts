@@ -21,7 +21,23 @@
  *  _.chunk(["a", "b", "c", "d"], 3) => [["a", "b", "c"], ["d"]]
  *  _.chunk(["a", "b", "c"]) => [["a"], ["b"], ["c"]]
  * */
-export function chunk() {
+export function chunk<T>(collection: Array<T>, size: number = 1): T[][] {
+  const result: T[][] = [];
+  let subarray: T[] = [];
+
+  for (let i = 0; i < collection.length; i++) {
+    const el = collection[i];
+    if (subarray.length === size) {
+      result.push(subarray);
+      subarray = [];
+    }
+    subarray.push(el);
+  }
+
+  if (subarray.length) {
+    result.push(subarray);
+  }
+  return result;
 }
 
 /**
