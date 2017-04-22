@@ -53,7 +53,8 @@ export function chunk<T>(collection: Array<T>, size: number = 1): T[][] {
  * _.compact([1, 0, 2, 0, 3]) => [1, 2, 3]
  * _.compact([1, undefined, NaN, null, 0, 2, 3]) => [1, 2, 3]
  */
-export function compact() {
+export function compact(collection: Array<any>): Array<any> {
+  return collection.filter(el => el);
 }
 
 /**
@@ -64,7 +65,8 @@ export function compact() {
  *  _.head([1, 2, 3]) => 1
  *  _.head([]) => undefined
  */
-export function head() {
+export function head<T>(collection: Array<T>): T {
+  return collection[0];
 }
 
 /**
@@ -75,7 +77,8 @@ export function head() {
  *  _.initial<number>([1, 2, 3]) => [1, 2]
  *
  */
-export function initial() {
+export function initial<T>(collection: Array<T>): Array<T> {
+  return collection.slice(0, -1);
 }
 
 /**
@@ -87,7 +90,8 @@ export function initial() {
  * _.last([]) => undefined
  *
  */
-export function last() {
+export function last<T>(collection: Array<T>): T {
+  return collection[collection.length - 1];
 }
 
 /**
